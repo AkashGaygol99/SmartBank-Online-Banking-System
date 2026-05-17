@@ -1,0 +1,18 @@
+<nav class="navbar">
+  <div class="brand" [routerLink]="['/dashboard']">SmartBank</div>
+
+  <div class="links" *ngIf="auth.isLoggedIn()">
+    <a [routerLink]="['/dashboard']">Dashboard</a>
+    <a [routerLink]="['/account']">Account</a>
+    <a [routerLink]="['/transfer']">Transfer</a>
+    <a [routerLink]="['/transactions']">Transactions</a>
+    <a [routerLink]="['/loan']">Loan</a>
+    <a [routerLink]="['/admin']" *ngIf="auth.getRole() === 'ROLE_ADMIN'">Admin</a>
+    <button (click)="logout()">Logout</button>
+  </div>
+
+  <div class="links" *ngIf="!auth.isLoggedIn()">
+    <a [routerLink]="['/login']">Login</a>
+    <a [routerLink]="['/register']">Register</a>
+  </div>
+</nav>

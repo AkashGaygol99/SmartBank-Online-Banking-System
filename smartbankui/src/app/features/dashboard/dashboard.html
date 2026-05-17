@@ -1,0 +1,35 @@
+<div class="dashboard">
+  <section class="hero">
+    <div>
+      <h1>Hello, {{ auth.getName() }}</h1>
+      <p>Welcome to your secure SmartBank dashboard.</p>
+    </div>
+    <span>Online Banking</span>
+  </section>
+
+  <section class="cards">
+    <div class="card blue">
+      <h3>Account Balance</h3>
+      <p>View your latest account details</p>
+      <a routerLink="/account">View Account</a>
+    </div>
+
+    <div class="card green">
+      <h3>Fund Transfer</h3>
+      <p>Send money securely anytime</p>
+      <a routerLink="/transfer">Transfer Now</a>
+    </div>
+
+    <div class="card purple">
+      <h3>Transactions</h3>
+      <p>Track credits, debits and payments</p>
+      <a routerLink="/transactions">View History</a>
+    </div>
+
+    <div class="card orange">
+      <h3>Loan Services</h3>
+      <p>Apply and track loan requests</p>
+      <a routerLink="/loan">Apply Loan</a>
+    </div>
+  </section>
+</div>

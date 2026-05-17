@@ -1,0 +1,55 @@
+<div class="loan-page">
+  <div class="loan-form">
+    <h1>Apply for Loan</h1>
+    <p>Submit your loan request for admin approval</p>
+
+    <form (ngSubmit)="applyLoan()">
+      <input
+        type="number"
+        name="amount"
+        placeholder="Loan Amount"
+        [(ngModel)]="loanData.amount"
+        required
+      />
+
+      <input
+        type="text"
+        name="purpose"
+        placeholder="Loan Purpose"
+        [(ngModel)]="loanData.purpose"
+        required
+      />
+
+      <input
+        type="number"
+        name="tenureMonths"
+        placeholder="Tenure in months"
+        [(ngModel)]="loanData.tenureMonths"
+        required
+      />
+
+      <button type="submit">Submit Application</button>
+    </form>
+
+    <p class="success" *ngIf="successMessage">{{ successMessage }}</p>
+    <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+  </div>
+
+  <div class="loan-list">
+    <h2>My Loan Applications</h2>
+
+    <div class="loan-item" *ngFor="let loan of loans">
+      <div>
+        <h3>₹ {{ loan.amount }}</h3>
+        <p>{{ loan.purpose }}</p>
+        <small>{{ loan.createdAt ? (loan.createdAt | date:'medium') : 'No date' }}</small>
+      </div>
+
+      <span>{{ loan.status || 'PENDING' }}</span>
+    </div>
+
+    <div class="empty" *ngIf="loans.length === 0">
+      No loan applications yet.
+    </div>
+  </div>
+</div>

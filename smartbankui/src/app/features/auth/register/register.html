@@ -1,0 +1,41 @@
+<div class="auth-page">
+  <div class="auth-card">
+    <h1>Create Account</h1>
+    <p>Start your secure banking journey with SmartBank</p>
+
+    <form (ngSubmit)="register()">
+      <input
+        type="text"
+        name="name"
+        placeholder="Full name"
+        [(ngModel)]="registerData.name"
+        required
+      />
+
+      <input
+        type="email"
+        name="email"
+        placeholder="Email address"
+        [(ngModel)]="registerData.email"
+        required
+      />
+
+      <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        [(ngModel)]="registerData.password"
+        required
+      />
+
+      <button type="submit">Register</button>
+    </form>
+
+    <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+    <p class="link-text">
+      Already have an account?
+      <a routerLink="/login">Login</a>
+    </p>
+  </div>
+</div>

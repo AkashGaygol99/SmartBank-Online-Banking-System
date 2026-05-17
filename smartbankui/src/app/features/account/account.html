@@ -1,0 +1,22 @@
+<div class="page">
+  <div class="account-card" *ngIf="account">
+    <h1>Account Details</h1>
+
+    <div class="info">
+      <p>Account Number</p>
+      <h2>{{ account.accountNumber }}</h2>
+    </div>
+
+    <div class="balance">
+      <p>Available Balance</p>
+      <h2>₹ {{ account.balance }}</h2>
+    </div>
+
+    <div class="status">
+      <span>Status</span>
+      <strong>{{ account.status || 'ACTIVE' }}</strong>
+    </div>
+  </div>
+
+  <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+</div>

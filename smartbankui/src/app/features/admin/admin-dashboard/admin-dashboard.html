@@ -1,0 +1,110 @@
+<div class="admin-page">
+  <div class="header">
+    <h1>Admin Dashboard</h1>
+    <p>Monitor SmartBank users, accounts, transactions and loans</p>
+  </div>
+
+  <div class="stats">
+    <div class="stat-card">
+      <h3>Total Users</h3>
+      <h2>{{ stats.users || 0 }}</h2>
+    </div>
+
+    <div class="stat-card">
+      <h3>Total Accounts</h3>
+      <h2>{{ stats.accounts || 0 }}</h2>
+    </div>
+
+    <div class="stat-card">
+      <h3>Total Transactions</h3>
+      <h2>{{ stats.transactions || 0 }}</h2>
+    </div>
+
+    <div class="stat-card">
+      <h3>Total Loans</h3>
+      <h2>{{ stats.loans || 0 }}</h2>
+    </div>
+  </div>
+
+  <div class="loan-section">
+    <h2>Loan Applications</h2>
+
+    <table *ngIf="loans.length > 0">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Amount</th>
+          <th>Purpose</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let loan of loans">
+          <td>{{ loan.id }}</td>
+          <td>₹ {{ loan.amount }}</td>
+          <td>{{ loan.purpose }}</td>
+          <td>
+            <span class="status">{{ loan.status }}</span>
+          </td>
+          <td>
+            <button class="approve" (click)="approve(loan.id)">Approve</button>
+            <button class="reject" (click)="reject(loan.id)">Reject</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="empty" *ngIf="loans.length === 0">
+      No loan applications found.
+    </div>
+
+    <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+  </div>
+  <div class="loan-section">
+  <h2>Manage Accounts</h2>
+
+  <table *ngIf="accounts.length > 0">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Account No</th>
+        <th>Name</th>
+        <th>Balance</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let acc of accounts">
+        <td>{{ acc.id }}</td>
+        <td>{{ acc.accountNumber }}</td>
+        <td>{{ acc.user?.name }}</td>
+        <td>₹ {{ acc.balance }}</td>
+        <td>{{ acc.frozen ? 'FROZEN' : 'ACTIVE' }}</td>
+        <td>
+          <button
+            class="reject"
+            *ngIf="!acc.frozen"
+            (click)="freeze(acc.id)">
+            Freeze
+          </button>
+
+          <button
+            class="approve"
+            *ngIf="acc.frozen"
+            (click)="unfreeze(acc.id)">
+            Unfreeze
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="empty" *ngIf="accounts.length === 0">
+    No accounts found.
+  </div>
+</div>
+</div>

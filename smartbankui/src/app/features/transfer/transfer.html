@@ -1,0 +1,35 @@
+<div class="transfer-page">
+  <div class="transfer-card">
+    <h1>Fund Transfer</h1>
+    <p>Send money securely to another SmartBank account</p>
+
+    <form (ngSubmit)="transfer()">
+      <input
+        type="text"
+        name="toAccountNumber"
+        placeholder="Receiver Account Number"
+        [(ngModel)]="transferData.toAccountNumber"
+        required
+      />
+
+      <input
+        type="number"
+        name="amount"
+        placeholder="Amount"
+        [(ngModel)]="transferData.amount"
+        required
+      />
+
+      <textarea
+        name="description"
+        placeholder="Description"
+        [(ngModel)]="transferData.description"
+      ></textarea>
+
+      <button type="submit">Transfer Money</button>
+    </form>
+
+    <p class="success" *ngIf="successMessage">{{successMessage}}</p>
+    <p class="error" *ngIf="errorMessage">{{errorMessage}}</p>
+  </div>
+</div>

@@ -1,0 +1,83 @@
+.dashboard {
+  padding: 35px;
+  min-height: 82vh;
+}
+
+.hero {
+  background: linear-gradient(135deg, #1e3a8a, #2563eb);
+  color: white;
+  border-radius: 24px;
+  padding: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.25);
+}
+
+.hero h1 {
+  font-size: 38px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #dbeafe;
+}
+
+.hero span {
+  padding: 12px 20px;
+  border-radius: 30px;
+  background: rgba(255,255,255,0.2);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.card {
+  padding: 28px;
+  border-radius: 22px;
+  color: white;
+  min-height: 190px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+}
+
+.card h3 {
+  font-size: 23px;
+  margin-bottom: 12px;
+}
+
+.card p {
+  margin-bottom: 25px;
+  color: rgba(255,255,255,0.85);
+}
+
+.card a {
+  color: white;
+  font-weight: 700;
+}
+
+.blue {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+}
+
+.green {
+  background: linear-gradient(135deg, #059669, #047857);
+}
+
+.purple {
+  background: linear-gradient(135deg, #7c3aed, #5b21b6);
+}
+
+.orange {
+  background: linear-gradient(135deg, #f97316, #c2410c);
+}
+
+@media (max-width: 1000px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

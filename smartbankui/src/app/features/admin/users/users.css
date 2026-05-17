@@ -1,0 +1,58 @@
+.users-page {
+  min-height: 82vh;
+  padding: 35px;
+}
+
+.header {
+  margin-bottom: 25px;
+}
+
+.header h1 {
+  color: #0f172a;
+  font-size: 34px;
+}
+
+.header p {
+  color: #64748b;
+}
+
+.table-card {
+  background: white;
+  padding: 28px;
+  border-radius: 22px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.09);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background: #f1f5f9;
+  padding: 15px;
+  text-align: left;
+  color: #334155;
+}
+
+td {
+  padding: 15px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+span {
+  background: #dbeafe;
+  color: #1d4ed8;
+  padding: 7px 14px;
+  border-radius: 20px;
+  font-weight: 700;
+}
+
+.empty {
+  color: #64748b;
+  padding: 25px;
+}
+
+.error {
+  color: #dc2626;
+}
